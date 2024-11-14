@@ -4,7 +4,7 @@ from parser import parse
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 
-model = ['llama3.2', 'qwen2.5'][0]
+model = ['llama3.2', 'qwen2.5', 'llama3.2-vision:11b'][0]
 
 stats = {
     'Health': 100.0,
