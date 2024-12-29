@@ -27,7 +27,6 @@ inv = [
     'Wooden shield',
     "Backpack with 2 days' worth of rations",
     'Empty waterskin',
-    '10 gold pieces'
 ]
 
 gold = 10
