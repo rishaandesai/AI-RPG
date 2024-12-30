@@ -33,7 +33,7 @@ gold = 10
 msgs = []
 
 def sys_msg():
-    with open('/Users/rishaandesai/Downloads/AI Dungeon/instructions.txt', 'r') as f:
+    with open('old/instructions.txt', 'r') as f:
         instructions = f.read()
     return {'role': 'user', 'content': instructions}
 
