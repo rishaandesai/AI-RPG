@@ -25,7 +25,7 @@ def a_star(start, goal, heuristic=lambda a, b: abs(a[0] - b[0]) + abs(a[1] - b[1
     return []
 
 
-def generate(cells_x, cells_y, cell_size=5):
+def generate_dungeon(cells_x, cells_y, cell_size=5):
     class Cell:
         def __init__(self, x, y, id):
             self.x, self.y, self.id = x, y, id
