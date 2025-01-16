@@ -177,7 +177,8 @@ class Graph:
         """
         Here the next adjustments will be added to create a complete map.
         """
-        fig, ax = plt.subplots(figsize=(10, 10))
+        n = 7
+        fig, ax = plt.subplots(figsize=(n, n))
 
         polygons = [self._center_to_polygon(center, plot_type) for center in self.centers]
         p = PatchCollection(polygons, match_original=True)
@@ -224,6 +225,9 @@ class Graph:
                     
         ax.set_xlim(0, 1)
         ax.set_ylim(0, 1)
+        plt.axis('off')
+        plt.savefig('map.png', bbox_inches='tight', pad_inches=0)
+        plt.axis('on')
         plt.show()
 
     def plot_3d_height_map(self):
@@ -617,3 +621,6 @@ class Graph:
 if __name__ == '__main__':
     g = Graph(N=25, iterations=2)
     g.plot_map()
+
+
+

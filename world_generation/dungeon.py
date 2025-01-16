@@ -84,4 +84,4 @@ def generate_dungeon(cells_x, cells_y, cell_size=5):
 
 
 if __name__ == "__main__":
-    generate(2, 1, 8)
+    generate_dungeon(2, 1, 8)

@@ -1,7 +1,7 @@
 from utils.map import Graph
 from utils.terrain import assign_terrain_types_to_graph
 
-g = Graph(N=250, iterations=2)
+g = Graph(N=500, iterations=2)
 assign_terrain_types_to_graph(graph=g, min_water_ratio=0.25)
 g.assign_corner_elevations()
 g.redistribute_elevations()
@@ -15,3 +15,4 @@ g.plot_full_map(
     debug_moisture=False, 
     downslope_arrows=False, 
     rivers=True)
+
