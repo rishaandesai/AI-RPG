@@ -31,6 +31,3 @@ while True:
     {'role': 'user', 'content': user_input},
     {'role': 'assistant', 'content': s},
   ]
-
-
-

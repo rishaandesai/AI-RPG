@@ -24,7 +24,3 @@ class Character:
 
     def summary(self) -> str:
         return f"Name: {self.name}\nGold: {self.gold}\nStrength: {self.strength}\nDexterity: {self.dexterity}\nConstitution: {self.constitution}\nIntelligence: {self.intelligence}\nWisdom: {self.wisdom}\nCharisma: {self.charisma}\nHealth: {self.health}\nAgility: {self.agility}\nLevel: {self.level}\nInventory: {self.inventory}\nOther Info: {self.other_info}"
-    
-
-'''
-'''
