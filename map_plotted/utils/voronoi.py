@@ -274,12 +274,8 @@ class VoronoiPolygons:
 
 if __name__ == '__main__':
     v = VoronoiPolygons()
-    # print(v.voronoi_finite_polygons_2d(vor=v.vor))
     print(v.points.shape)
     print(v.centroids.shape)
-
-    # print(v.find_new_polygons(vor=v.vor))
-    # print(v.generate_neighbours(vor=v.vor))
 
     vorpoints, points, new_vertices, new_regions, neighbors, intersecions \
         = v.generate_Voronoi(iterations=4)

@@ -20,6 +20,13 @@ def draw_interface(stdscr):
         bottom_panel_height = height - top_panel_height
         panel_width = width // 3
 
+        # Ensure the panels fit within the terminal size
+        if panel_width < 20 or top_panel_height < 5 or bottom_panel_height < 5:
+            stdscr.addstr(0, 0, "Terminal too small to display the interface. Resize and try again.")
+            stdscr.refresh()
+            stdscr.getch()
+            return
+
         # Create windows for each panel
         notebook_win = curses.newwin(top_panel_height, panel_width, 0, 0)
         story_win = curses.newwin(top_panel_height, panel_width, 0, panel_width)
@@ -37,13 +44,17 @@ def draw_interface(stdscr):
         stats_win.box()
 
         # Add content to the notebook panel
-        notebook_win.addstr(2, 2, "NOTEBOOK FEATURES TBA")
-        notebook_win.addstr(4, 2, "Leave blank for now")
+        notebook_content = ["NOTEBOOK FEATURES TBA", "Leave blank for now"]
+        for idx, line in enumerate(notebook_content):
+            if idx + 2 < top_panel_height - 1:
+                notebook_win.addstr(2 + idx, 2, line)
         notebook_win.refresh()
 
         # Add content to the story panel
+        story_content = ["Bla Bla Previous Story here"]
         for i in range(3, top_panel_height - 2):
-            story_win.addstr(i, 2, "Bla Bla Previous Story here")
+            if i - 3 < len(story_content):
+                story_win.addstr(i, 2, story_content[i - 3])
         story_win.refresh()
 
         # Add content to the map panel
@@ -60,14 +71,19 @@ def draw_interface(stdscr):
         ]
         for idx, line in enumerate(map_section):
             if idx + 2 < top_panel_height - 1:
-                map_win.addstr(2 + idx, 2, line)
+                map_win.addstr(2 + idx, 2, line[:panel_width - 4])
         map_win.refresh()
 
         # Add content to the keymap panel
-        keymap_win.addstr(2, 2, "h - help")
-        keymap_win.addstr(3, 2, "a - abilities")
-        keymap_win.addstr(4, 2, "i - inventory")
-        keymap_win.addstr(5, 2, "q - save and quit")
+        keymap_content = [
+            "h - help",
+            "a - abilities",
+            "i - inventory",
+            "q - save and quit"
+        ]
+        for idx, line in enumerate(keymap_content):
+            if idx + 2 < bottom_panel_height - 1:
+                keymap_win.addstr(2 + idx, 2, line)
         keymap_win.refresh()
 
         # Add content to the input panel
@@ -100,7 +116,7 @@ def draw_interface(stdscr):
 
         # Wait for user input before exiting
         stdscr.getch()
-    except curses.error as e:
+    except Exception as e:
         # Log the error to a file for debugging
         with open("curses_error.log", "w") as log_file:
             log_file.write(str(e))
