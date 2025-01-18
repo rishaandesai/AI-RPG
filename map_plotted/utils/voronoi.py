@@ -287,3 +287,4 @@ if __name__ == '__main__':
     VoronoiPolygons.plot_Voronoi_grid(
         points=points, vertices=new_vertices, regions=new_regions, neighbors=neighbors
     )
+
